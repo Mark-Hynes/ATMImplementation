@@ -153,11 +153,25 @@ namespace WindowsATM
             this.Text = "NetCash ATM";
             this.ResumeLayout(false);
 
+            //REGISTERING SUBJECTS TO OBSERVERS -- MAY CREATE A HELPER CLASS LATER AS IT LOOKS HORRIBLE
+            this.button1.registerObserver(currentPanel);
+            this.button2.registerObserver(currentPanel);
+            this.button3.registerObserver(currentPanel);
+            this.button4.registerObserver(currentPanel);
+            this.button5.registerObserver(currentPanel);
+            this.button6.registerObserver(currentPanel);
+            this.button7.registerObserver(currentPanel);
+            this.button8.registerObserver(currentPanel);
+            this.button9.registerObserver(currentPanel);
+            this.button13.registerObserver(currentPanel);
         }
 
+        //USED TO NOTIFY AN OBSERVER ONCE A SUBJECT HAS BEEN ACTED UPON
         private void button_Click(object sender, EventArgs e)
         {
-            currentPanel.buttonInput((System.Windows.Forms.Button)sender);
+            ATMButton b = (ATMButton)sender;
+            b.notifyObservers();
+           // currentPanel.buttonInput((System.Windows.Forms.Button)sender);
         }
 
         #endregion

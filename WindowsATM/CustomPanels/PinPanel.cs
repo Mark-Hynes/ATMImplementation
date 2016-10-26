@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WindowsATM.Interfaces;
 
 namespace WindowsATM.CustomPanels
 {
@@ -32,6 +33,8 @@ namespace WindowsATM.CustomPanels
             this.Controls.Add(netCashLabel);
         }
 
+
+        //METHOD ONLY APPLIES TO FUNCTION BUTTONS -- WILL BE REFACTORED/REMOVED TO IMPLEMENT COMMAND
         public void buttonInput(System.Windows.Forms.Button b)
         {
             if (b.Text == "Clear")
@@ -50,13 +53,16 @@ namespace WindowsATM.CustomPanels
                 else pinEntryBox.Text = "PIN ENTERED";
                 pinEntryBox.Update();
             }
-            else
-            {
-                string additionalNumber = b.Text;
-                pinEntryBox.Text += additionalNumber;
-                pinEntryBox.Update();
-            }
+           
         }
-            
-            }
+
+        //PART OF OBSERVER DESIGN PATTERN -- SUBJECT PASSES ITSELF AS PARAMETER TO GET TEXT FROM AND UPDATES
+
+        public override void update(ATMButton e)
+        {
+            pinEntryBox.Text += e.Text;
+            pinEntryBox.Update();
+        }
+
+    }
 }

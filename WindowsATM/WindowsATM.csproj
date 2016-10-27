@@ -59,8 +59,23 @@
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="CustomButtons\ButtonFactory.cs" />
+    <Compile Include="CustomPanels\BalancePanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\DepositPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\MainPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="CustomPanels\PanelFactory.cs" />
     <Compile Include="CustomPanels\PinPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\PinResetPanel.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CustomPanels\WithdrawalPanel.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Form1.cs">

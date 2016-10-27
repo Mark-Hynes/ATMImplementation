@@ -14,6 +14,7 @@ namespace WindowsATM.CustomPanels
         protected static Label depositLabel;
         protected static Label balanceLabel;
         protected static Label pinResetLabel;
+        protected static Label printReceiptLabel;
         protected static Label exitLabel;
         public MainPanel()
         {
@@ -29,17 +30,22 @@ namespace WindowsATM.CustomPanels
             this.Controls.Add(netCashLabel);
 
             withdrawalLabel = new Label();
-            withdrawalLabel.Text = "1 : withdrawalLabel";
+            withdrawalLabel.Text = "1 : WITHDRAWAL";
             withdrawalLabel.SetBounds(0 , (this.Height / 2), 100, 40);
             this.Controls.Add(withdrawalLabel);
 
             depositLabel = new Label();
-            depositLabel.Text = "3 : depositLabel";
+            depositLabel.Text = "3 : DEPOSIT";
             depositLabel.SetBounds(0, ((this.Height / 2) + 40), 100, 40);
             this.Controls.Add(depositLabel);
 
+            printReceiptLabel = new Label();
+            printReceiptLabel.Text = "5 : PRINT RECEIPT";
+            printReceiptLabel.SetBounds(0, ((this.Height / 2) + 80), 150, 40);
+            this.Controls.Add(printReceiptLabel);
+
             balanceLabel = new Label();
-            balanceLabel.Text = "balanceLabel : 2";            
+            balanceLabel.Text = "BALANCE : 2";            
             balanceLabel.SetBounds((this.Width - 73), (this.Height / 2), 100, 40);
             this.Controls.Add(balanceLabel);
 
@@ -49,8 +55,8 @@ namespace WindowsATM.CustomPanels
             this.Controls.Add(pinResetLabel);
 
             exitLabel = new Label();
-            exitLabel.Text = "0 : exitLabel";
-            exitLabel.SetBounds(((this.Width / 2) - 25), ((this.Height / 2) + 80), 100, 40);
+            exitLabel.Text = "EXIT : 6";
+            exitLabel.SetBounds((this.Width - 47), ((this.Height / 2) + 80), 100, 40);
             this.Controls.Add(exitLabel);
 
 
@@ -74,7 +80,11 @@ namespace WindowsATM.CustomPanels
             {
                 //Change to Pin Reset Panel
             }
-            else if (b.Text == "0")
+            else if (b.Text == "5")
+            {
+                //print receipt
+            }
+            else if (b.Text == "6")
             {
                 //exitLabel
             }

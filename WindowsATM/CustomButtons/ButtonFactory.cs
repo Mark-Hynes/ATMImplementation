@@ -25,9 +25,7 @@ namespace WindowsATM.CustomPanels
                         b1.Location = new System.Drawing.Point(385, 359);
                         b1.Name = identifier;
                         b1.Size = new System.Drawing.Size(75, 45);
-                         b1.TabIndex = 11;
-                        //
-
+                        b1.TabIndex = 11;
                         b = b1;
                         break;
                     }
@@ -48,10 +46,10 @@ namespace WindowsATM.CustomPanels
 
                         b1.Text = identifier;
                         b1.setColour("Yellow");
-                       b1.Location = new System.Drawing.Point(385, 308);
+                        b1.Location = new System.Drawing.Point(385, 308);
                         b1.Name = identifier;
-                       b1.Size = new System.Drawing.Size(75, 45);
-                       b1.TabIndex = 10;
+                        b1.Size = new System.Drawing.Size(75, 45);
+                        b1.TabIndex = 10;
                         b = b1;
                         break;
                     }

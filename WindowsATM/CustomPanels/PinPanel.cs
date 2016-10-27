@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -58,10 +59,26 @@ namespace WindowsATM.CustomPanels
 
         //PART OF OBSERVER DESIGN PATTERN -- SUBJECT PASSES ITSELF AS PARAMETER TO GET TEXT FROM AND UPDATES
 
-        public override void update(ATMButton e)
+        public override void update(Subject e)
         {
-            pinEntryBox.Text += e.Text;
+            ATMButton b = (ATMButton)e;
+            pinEntryBox.Text += b.Text;
             pinEntryBox.Update();
+        }
+
+        public override void cancel()
+        {
+            pinEntryBox.Clear();
+            pinEntryBox.Update();
+        }
+        public override void clear()
+        {
+            pinEntryBox.Clear();
+            pinEntryBox.Update();
+        }
+        public override void enter()
+        {
+            Debug.WriteLine("Enter button clicked while on PinPanel");
         }
 
     }

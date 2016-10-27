@@ -1,33 +1,57 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 using WindowsATM.Interfaces;
 
 namespace WindowsATM.CustomPanels
 {
-    public class ATMButton : Button
-    { //ATMBUTTON NOW ACTS AS A SUBJECT -- WILL BE MADE TO INHERIT KEYPADSUBJECT INTERFACE
-        List<ATMPanel> observerList;
-        public ATMButton() { observerList = new List<ATMPanel>(); }
+    public class ATMButton : Button, Subject , Invoker
+    { 
+        
+        //ATMBUTTON NOW ACTS AS A SUBJECT -- WILL BE MADE TO INHERIT KEYPADSUBJECT INTERFACE
+        private List<Observer> observerList;
+        public ATMButton() { observerList = new List<Observer>(); }
+            
+
+        List<Observer> Subject.observerList
+        {
+            get
+            {
+                return this.observerList;
+            }
+
+            
+        }
 
 
 
         //NOTIFIES ALL OBSERVERS(ATM PANELS) OF AND PASSESS ITSELF AS A PARAMETER 
         public void notifyObservers()
         {
-            foreach (ATMPanel i in this.observerList)
+            foreach (Observer i in this.observerList)
             {
                 i.update(this);
             }
 
         }
-        //ADDS AN OBSERVER TO THE SUBJECT
-        public void registerObserver(ATMPanel e) { this.observerList.Add(e); }
 
-        //REMOVES AN OBSERVER FROM THE SUBJECT
-        public void unregisterObserver(ATMPanel e)
+        public void registerObserver(Observer e)
         {
-            for (int i = 0; i < observerList.Count; i++)
-                this.observerList.Remove(e);
+            this.observerList.Add(e);
+        }
+
+        //ADDS AN OBSERVER TO THE SUBJECT
+        //public void registerObserver(ATMPanel e) { this.observerList.Add(e); }
+
+        public void unregisterObserver(Observer e)
+        {
+            this.observerList.Remove(e);
+        }
+
+
+        public void executeCommand(Command c)
+        {
+            c.execute();
         }
     }
     

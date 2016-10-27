@@ -46,6 +46,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConcreteCommands\CancelCommand.cs" />
+    <Compile Include="ConcreteCommands\ClearCommand.cs" />
     <Compile Include="CustomButtons\ATMButton.cs">
       <SubType>Component</SubType>
     </Compile>
@@ -78,14 +80,19 @@
     <Compile Include="CustomPanels\WithdrawalPanel.cs">
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="ConcreteCommands\EnterCommand.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\KeypadObserver.cs" />
-    <Compile Include="Interfaces\KeypadSubject.cs" />
+    <Compile Include="Helper Classes\RegistrationHelper.cs" />
+    <Compile Include="Interfaces\Command.cs" />
+    <Compile Include="Interfaces\Invoker.cs" />
+    <Compile Include="Interfaces\Observer.cs" />
+    <Compile Include="Interfaces\Reciever.cs" />
+    <Compile Include="Interfaces\Subject.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

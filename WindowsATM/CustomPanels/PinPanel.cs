@@ -35,27 +35,7 @@ namespace WindowsATM.CustomPanels
         }
 
 
-        //METHOD ONLY APPLIES TO FUNCTION BUTTONS -- WILL BE REFACTORED/REMOVED TO IMPLEMENT COMMAND
-        public void buttonInput(System.Windows.Forms.Button b)
-        {
-            if (b.Text == "Clear")
-            {
-                pinEntryBox.Text = "";
-                pinEntryBox.Update();
-            }
-            else if (b.Text == "Cancel")
-            {
-                pinEntryBox.Text = "";
-                pinEntryBox.Update();
-            }
-            else if (b.Text == "Enter")
-            {
-                if (pinEntryBox.Text.Length < 4 || pinEntryBox.Text.Length > 4) { netCashLabel.Text = "Pin not correctly entered"; netCashLabel.Update(); }
-                else pinEntryBox.Text = "PIN ENTERED";
-                pinEntryBox.Update();
-            }
-           
-        }
+        
 
         //PART OF OBSERVER DESIGN PATTERN -- SUBJECT PASSES ITSELF AS PARAMETER TO GET TEXT FROM AND UPDATES
 
@@ -78,7 +58,9 @@ namespace WindowsATM.CustomPanels
         }
         public override void enter()
         {
-            Debug.WriteLine("Enter button clicked while on PinPanel");
+            if (pinEntryBox.Text.Length < 4 || pinEntryBox.Text.Length > 4) { netCashLabel.Text = "Pin not correctly entered"; netCashLabel.Update(); }
+            else pinEntryBox.Text = "PIN ENTERED";
+            pinEntryBox.Update();
         }
 
     }

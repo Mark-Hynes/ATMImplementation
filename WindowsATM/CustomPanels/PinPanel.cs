@@ -49,7 +49,7 @@ namespace WindowsATM.CustomPanels
             }
             else if (b.Text == "Enter")
             {
-                if (pinEntryBox.Text.Length < 4) { netCashLabel.Text = "Pin not correctly entered"; netCashLabel.Update(); }
+                if (pinEntryBox.Text.Length < 4 || pinEntryBox.Text.Length > 4) { netCashLabel.Text = "Pin not correctly entered"; netCashLabel.Update(); }
                 else pinEntryBox.Text = "PIN ENTERED";
                 pinEntryBox.Update();
             }
